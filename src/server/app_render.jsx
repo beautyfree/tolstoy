@@ -12,6 +12,9 @@ import {
 } from 'app/client_config';
 import { metrics } from './metrics';
 
+const path = require('path');
+const ROOT = path.join(__dirname, '../..');
+
 const DB_RECONNECT_TIMEOUT = process.env.NODE_ENV === 'development' ? 1000 * 60 * 60 : 1000 * 60 * 10;
 
 async function appRender(ctx) {
@@ -106,7 +109,7 @@ async function appRender(ctx) {
         if (metrics) metrics.timing(`universalRender.time`, new Date() - start)
 
         // Assets name are found in `webpack-stats` file
-        const assets_filename = process.env.NODE_ENV === 'production' ? 'tmp/webpack-stats-prod.json' : 'tmp/webpack-stats-dev.json';
+        const assets_filename = ROOT + (process.env.NODE_ENV === 'production' ? '/tmp/webpack-stats-prod.json' : '/tmp/webpack-stats-dev.json');
         const assets = require(assets_filename);
 
         // Don't cache assets name on dev

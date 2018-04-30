@@ -16,14 +16,17 @@ import tt from 'counterpart';
 import {metrics} from 'server/metrics';
 import {hash} from 'golos-js/lib/auth/ecc';
 
+const path = require('path');
+const ROOT = path.join(__dirname, '../../..');
+
 // FIXME copy paste code, refactor mixpanel out
 // if (config.has("mixpanel") && config.get("mixpanel")) {
 //     mixpanel = Mixpanel.init(config.get("mixpanel"));
 // }
 
-var assets_file = "tmp/webpack-stats-dev.json";
+var assets_file = ROOT + "tmp/webpack-stats-dev.json";
 if (process.env.NODE_ENV === "production") {
-    assets_file = "tmp/webpack-stats-prod.json";
+    assets_file = ROOT + "tmp/webpack-stats-prod.json";
 }
 
 const assets = Object.assign({}, require(assets_file), { script: [] });

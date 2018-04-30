@@ -4,11 +4,11 @@ import * as golos from 'golos-js';
 delete process.env.BROWSER;
 
 const path = require('path');
-const ROOT = path.join(__dirname, '..');
+const ROOT = path.join(__dirname, '../..');
 
 // Tell `require` calls to look into `/app` also
 // it will avoid `../../../../../` require strings
-process.env.NODE_PATH = path.resolve(__dirname, '..');
+Object.assign(process.env, { NODE_PATH: path.resolve(__dirname, '..') });
 require('module').Module._initPaths();
 
 global.$STM_Config = {
@@ -29,7 +29,7 @@ global.$STM_Config = {
 };
 
 const WebpackIsomorphicTools = require('webpack-isomorphic-tools');
-const WebpackIsomorphicToolsConfig = require('../webpack/webpack-isotools-config');
+const WebpackIsomorphicToolsConfig = require('../../webpack/webpack-isotools-config');
 
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(
     WebpackIsomorphicToolsConfig

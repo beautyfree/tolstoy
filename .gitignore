@@ -14,6 +14,7 @@ app/assets/yandex*.html
 app/assets/sitemap.xml
 app/assets/robots.txt
 
+config/client_config.js
 config/golos.json
 config/golos-dev.json
 config/process.json

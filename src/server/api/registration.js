@@ -179,7 +179,7 @@ export default function useRegistrationApi(app) {
     }
 
     const phone = digits(parseInt(country) + localPhone);
-    const phoneHash = hash.sha256(phone, 'hex')
+    const phoneHash = hash.sha256(phone, 'hex');
     const existing_phone = yield models.Identity.findOne({
       attributes: ["user_id"],
       where: { phone: phoneHash, provider: "phone", verified: true },
