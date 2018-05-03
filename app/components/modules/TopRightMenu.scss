@@ -1,9 +1,6 @@
 .sub-menu {
     li {
-        padding: .7rem 1rem;
-        a {
-            padding: 0px;
-        }
+        margin: 0 15px 0 15px;
     }
     li:last-child {
         padding: 0 0 0 1rem;
@@ -41,12 +38,6 @@ li.buttons {
 }
 
 li {
-    .button.alert, .button.success {
-      padding: 3px;
-      font-size: 100%;
-      line-height: 100%;
-      font-weight: 500;
-    }
     .button.fest {
       text-transform: inherit;
       background-color: #eb3010;

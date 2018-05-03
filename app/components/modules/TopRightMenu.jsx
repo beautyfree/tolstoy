@@ -166,14 +166,9 @@ const estimateOutput = <LocalizedCurrency amount={calculateEstimateOutput({a:acc
         ];
         return (
             <ul className={mcn + mcl}>
-                {!inIco && golosFest}
                 {inIco && ico_menu.map((o,i) => {return <li key={i} className={lcn}><a href={o.link}>{o.value}</a></li>})}
-                {!inIco && aboutItem}
-                {!inIco && !vertical && submitFeedback}
                 {!inIco && searchItem}
                 {!inIco && languageMenu}
-                {!inIco && telegramItem}
-                {!inIco && rocketchatItem}
                 {!inIco && submitStory}
                 {!inIco && !vertical && submitStoryPencil}
                 <LinkWithDropdown
@@ -212,22 +207,12 @@ const estimateOutput = <LocalizedCurrency amount={calculateEstimateOutput({a:acc
 
     return (
         <ul className={mcn + mcl}>
-            {!inIco && golosFest}
             {inIco && ico_menu.map((o,i) => {return <li key={i} className={lcn}><a href={o.link}>{o.value}</a></li>})}
-            {!inIco && aboutItem}
-            {!inIco && !vertical && <li>
-              <a href="/submit.html?type=submit_feedback" title={tt('navigation.feedback')}>
-                <Icon name="feedback" />
-              </a>
-            </li>}
-            {!inIco && !vertical && languageMenu}
-            {!inIco && telegramItem}
-            {!inIco && rocketchatItem}
-            {!inIco && !probablyLoggedIn && <li className={lcn}>
-              <a href="/create_account">{tt('g.sign_up')}</a>
-            </li>}
             {!inIco && !probablyLoggedIn && !externalTransfer && <li className={lcn}>
-              <a href="/login.html" onClick={showLogin}>{tt('g.login')}</a>
+              <a href="/login.html" onClick={showLogin} className={!vertical && 'button tiny hollow'}>{tt('g.login')}</a>
+            </li>}
+            {!inIco && !probablyLoggedIn && <li className={lcn}>
+              <a href="/create_account" className={!vertical && 'button tiny alert'}>{tt('g.sign_up')}</a>
             </li>}
             {!inIco && !probablyLoggedIn && !vertical && submitStoryPencil}
             {!inIco && !probablyLoggedIn && submitStory}

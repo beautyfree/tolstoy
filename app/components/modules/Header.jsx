@@ -12,7 +12,7 @@ import normalizeProfile from 'app/utils/NormalizeProfile';
 import { LinkWithDropdown } from 'react-foundation-components/lib/global/dropdown';
 import VerticalMenu from 'app/components/elements/VerticalMenu';
 import tt from 'counterpart';
-import { APP_NAME, APP_ICON, DEFAULT_DOMESTIC, DOMESTIC, SEO_TITLE } from 'app/client_config';
+import { APP_NAME_UP, APP_ICON, DEFAULT_DOMESTIC, DOMESTIC, SEO_TITLE } from 'app/client_config';
 import {detransliterate, capitalizeFirstLetter} from 'app/utils/ParsersAndFormatters';
 import MobileBanners from 'app/components/elements/MobileBanners/MobileBanners'
 
@@ -207,31 +207,24 @@ class Header extends React.Component {
         return (
             <header className="Header noPrint">
                 <div className="Header__top header">
-                    <div className="expanded row">
-                        <div className="columns">
-                            <ul className="menu">
-                                <li className="Header__top-logo">
-                                    <Link to={logo_link}>
-                                        <Icon name={APP_ICON} size="2x" />
-                                    </Link>
-                                </li>
-                                <li className="Header__top-steemit show-for-medium noPrint">
-                                    <Link to={logo_link}>{APP_NAME}<span className="beta">beta</span></Link>
-                                </li>
-                                <li>
-                                    <MobileBanners showAndroid={true} />
-                                </li>
-                                {(topic_link || user_name || page_name) && <li className="delim show-for-medium">|</li>}
-                                {topic_link && <li className="Header__top-topic">{topic_link}</li>}
-                                {user_name && <li><Link to={`/@${user_name}`}>@{user_name}</Link></li>}
-                                {page_name && <li><span>{page_name}</span></li>}
-                                {(topic_link || user_name || page_name) && sort_order && <li className="delim show-for-small-only">|</li>}
-                                {selected_sort_order && route && route.page !== 'Landing' && <DropdownMenu className="Header__sort-order-menu show-for-small-only" items={sort_order_menu} selected={selected_sort_order[1]} el="li" />}
-                            </ul>
-                        </div>
-                        <div className="columns shrink">
-                            <TopRightMenu {...this.props} />
-                        </div>
+                    <div className="columns">
+                        <ul className="menu">
+                            <li className="Header__top-logo">
+                                <Link to={logo_link}>
+                                    <Icon name={APP_ICON} size="2x" />
+                                </Link>
+                            </li>
+                            <li className="Header__top-steemit show-for-medium noPrint">
+                                <Link to={logo_link}>{APP_NAME_UP}<span className="beta">beta</span></Link>
+                            </li>
+                            {user_name && <li><Link to={`/@${user_name}`}>@{user_name}</Link></li>}
+                            {page_name && <li><span>{page_name}</span></li>}
+                            {(topic_link || user_name || page_name) && sort_order && <li className="delim show-for-small-only">|</li>}
+                            {selected_sort_order && route && route.page !== 'Landing' && <DropdownMenu className="Header__sort-order-menu show-for-small-only" items={sort_order_menu} selected={selected_sort_order[1]} el="li" />}
+                        </ul>
+                    </div>
+                    <div className="columns shrink">
+                        <TopRightMenu {...this.props} />
                     </div>
                 </div>
                 <div className={'Header__sub-nav expanded show-for-medium row' + (this.state.subheader_hidden ? ' hidden' : '')}>

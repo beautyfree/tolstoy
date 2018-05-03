@@ -28,8 +28,14 @@
 }
 
 .Header__top {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  max-width: none;
+
   background-color: $white;
   border-bottom: 1px solid $light-gray;
+
   ul > li.Header__top-logo {
     padding: .35rem 0 .35rem 0;
   }
@@ -67,11 +73,6 @@
 ul > li.Header__top-logo > a {
   padding: 0;
   transition: none;
-}
-
-ul > li > .button {
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
 }
 
 .Header__sub-nav {
@@ -137,16 +138,18 @@ ul > li > .button {
 }
 
 .Header__top-steemit {
-  margin-right: -22px;
 
   a {
     text-transform: uppercase;
-    letter-spacing: 0.01rem;
+    color: #0B1B69;
+    font-family: "Roboto Slab";
+    font-size: 36px !important;
+    font-weight: bold;
   }
 
   .beta {
     position: relative;
-    top: 14px;
+    top: 22px;
     right: 22px;
     font-size: 0.7rem;
     color: #4ba2f2;
